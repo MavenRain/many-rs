@@ -65,7 +65,7 @@ pub struct TransactionReturns {
 #[cbor(map)]
 pub struct TransactionResultsReturns {
     #[n(0)]
-    pub txn_results: Vec<Vec<u8>>
+    pub txn_results: Vec<Vec<u8>>,
 }
 
 #[derive(Clone, Debug, Default, Encode, Decode, Eq, PartialEq)]
