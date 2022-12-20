@@ -61,6 +61,13 @@ pub struct TransactionReturns {
     pub txn: Transaction,
 }
 
+#[derive(Clone, Encode, Decode)]
+#[cbor(map)]
+pub struct TransactionResultsReturns {
+    #[n(0)]
+    pub txn_results: Vec<Vec<u8>>
+}
+
 #[derive(Clone, Debug, Default, Encode, Decode, Eq, PartialEq)]
 #[cbor(map)]
 pub struct ListArgs {
@@ -118,7 +125,7 @@ pub trait BlockchainModuleBackend: Send {
     fn info(&self) -> Result<InfoReturns, ManyError>;
     fn block(&self, args: BlockArgs) -> Result<BlockReturns, ManyError>;
     fn transaction(&self, args: TransactionArgs) -> Result<TransactionReturns, ManyError>;
-    fn tx_results(&self) -> Result<(), ManyError>;
+    fn transaction_results(&self, args: ListArgs) -> Result<TransactionResultsReturns, ManyError>;
     fn list(&self, args: ListArgs) -> Result<ListReturns, ManyError>;
     fn request(&self, args: RequestArgs) -> Result<RequestReturns, ManyError>;
     fn response(&self, args: ResponseArgs) -> Result<ResponseReturns, ManyError>;
