@@ -118,6 +118,7 @@ pub trait BlockchainModuleBackend: Send {
     fn info(&self) -> Result<InfoReturns, ManyError>;
     fn block(&self, args: BlockArgs) -> Result<BlockReturns, ManyError>;
     fn transaction(&self, args: TransactionArgs) -> Result<TransactionReturns, ManyError>;
+    fn tx_results(&self) -> Result<(), ManyError>;
     fn list(&self, args: ListArgs) -> Result<ListReturns, ManyError>;
     fn request(&self, args: RequestArgs) -> Result<RequestReturns, ManyError>;
     fn response(&self, args: ResponseArgs) -> Result<ResponseReturns, ManyError>;
