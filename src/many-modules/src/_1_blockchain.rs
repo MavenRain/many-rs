@@ -5,7 +5,8 @@ use many_types::blockchain::{
 };
 use minicbor::{Decode, Encode};
 
-use many_types::SortOrder;
+use many_types::{blockchain::TransactionIdentifier, SortOrder};
+
 #[cfg(test)]
 use mockall::{automock, predicate::*};
 
@@ -118,7 +119,7 @@ pub trait BlockchainModuleBackend: Send {
     fn info(&self) -> Result<InfoReturns, ManyError>;
     fn block(&self, args: BlockArgs) -> Result<BlockReturns, ManyError>;
     fn transaction(&self, args: TransactionArgs) -> Result<TransactionReturns, ManyError>;
-    fn tx_results(&self, args: ListArgs) -> Result<Vec<Vec<u8>>, ManyError>;
+    fn tx_results(&self, args: ListArgs) -> Result<Vec<(TransactionIdentifier, Vec<u8>)>, ManyError>;
     fn list(&self, args: ListArgs) -> Result<ListReturns, ManyError>;
     fn request(&self, args: RequestArgs) -> Result<RequestReturns, ManyError>;
     fn response(&self, args: ResponseArgs) -> Result<ResponseReturns, ManyError>;
