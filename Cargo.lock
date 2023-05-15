@@ -1282,7 +1282,7 @@ dependencies = [
  "digest 0.10.6",
  "elliptic-curve",
  "rfc6979",
- "signature 2.1.0",
+ "signature 2.0.0",
 ]
 
 [[package]]
@@ -1322,7 +1322,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5fb04eee5d9d907f29e80ee6b0e78f7e2c82342c63e3580d8c4f69d9d5aad963"
 dependencies = [
  "pkcs8",
- "signature 2.1.0",
+ "signature 2.0.0",
 ]
 
 [[package]]
@@ -2523,7 +2523,7 @@ dependencies = [
  "num-bigint",
  "num-derive",
  "num-traits",
- "p256",
+ "p256 0.13.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "pem",
  "rand 0.8.5",
  "regex",
@@ -2592,7 +2592,7 @@ dependencies = [
  "many-protocol",
  "minicbor",
  "once_cell",
- "p256",
+ "p256 0.13.2 (git+https://github.com/MavenRain/elliptic-curves.git)",
  "proptest",
  "rand 0.7.3",
  "rand 0.8.5",
@@ -2615,7 +2615,7 @@ dependencies = [
  "many-identity",
  "many-identity-dsa",
  "once_cell",
- "p256",
+ "p256 0.13.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "sha2 0.10.6",
  "tracing",
 ]
@@ -3310,7 +3310,18 @@ checksum = "c9863ad85fa8f4460f9c48cb909d38a0d689dba1f6f6988a5e3e0d31071bcd4b"
 dependencies = [
  "ecdsa",
  "elliptic-curve",
- "primeorder",
+ "primeorder 0.13.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "sha2 0.10.6",
+]
+
+[[package]]
+name = "p256"
+version = "0.13.2"
+source = "git+https://github.com/MavenRain/elliptic-curves.git#ba7ade0285819be1983a98c3f1d4ef258e07e43d"
+dependencies = [
+ "ecdsa",
+ "elliptic-curve",
+ "primeorder 0.13.1 (git+https://github.com/MavenRain/elliptic-curves.git)",
  "sha2 0.10.6",
 ]
 
@@ -3589,6 +3600,14 @@ name = "primeorder"
 version = "0.13.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf8d3875361e28f7753baefef104386e7aa47642c93023356d97fdef4003bfb5"
+dependencies = [
+ "elliptic-curve",
+]
+
+[[package]]
+name = "primeorder"
+version = "0.13.1"
+source = "git+https://github.com/MavenRain/elliptic-curves.git#ba7ade0285819be1983a98c3f1d4ef258e07e43d"
 dependencies = [
  "elliptic-curve",
 ]
@@ -4340,9 +4359,9 @@ checksum = "74233d3b3b2f6d4b006dc19dee745e73e2a6bfb6f93607cd3b02bd5b00797d7c"
 
 [[package]]
 name = "signature"
-version = "2.1.0"
+version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e1788eed21689f9cf370582dfc467ef36ed9c707f073528ddafa8d83e3b8500"
+checksum = "8fe458c98333f9c8152221191a77e2a44e8325d0193484af2e9421a53019e57d"
 dependencies = [
  "digest 0.10.6",
  "rand_core 0.6.4",
